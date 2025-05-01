@@ -7,6 +7,8 @@ use Illuminate\Support\ServiceProvider;
 use Nwidart\Modules\Traits\PathNamespace;
 use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;
+use Livewire\Livewire;
+use Modules\Product\Http\Livewire\ProductCreate;
 
 class ProductServiceProvider extends ServiceProvider
 {
@@ -27,6 +29,7 @@ class ProductServiceProvider extends ServiceProvider
         $this->registerConfig();
         $this->registerViews();
         $this->loadMigrationsFrom(module_path($this->name, 'database/migrations'));
+        Livewire::component('product-create', ProductCreate::class);
     }
 
     /**
