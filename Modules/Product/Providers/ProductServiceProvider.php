@@ -9,6 +9,7 @@ use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;
 use Livewire\Livewire;
 use Modules\Product\Http\Livewire\ProductCreate;
+use Modules\Product\Http\Livewire\ProductList;
 
 class ProductServiceProvider extends ServiceProvider
 {
@@ -30,6 +31,7 @@ class ProductServiceProvider extends ServiceProvider
         $this->registerViews();
         $this->loadMigrationsFrom(module_path($this->name, 'database/migrations'));
         Livewire::component('product-create', ProductCreate::class);
+        Livewire::component('product-list', ProductList::class);
     }
 
     /**
