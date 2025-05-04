@@ -1,4 +1,5 @@
 <?php 
+
 namespace Modules\Product\Http\Livewire;
 
 use Livewire\Component;

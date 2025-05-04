@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Modules\Product\Http\Controllers\ProductController;
 use Modules\Product\Http\Livewire\ProductCreate;
 use Modules\Product\Http\Livewire\ProductList;
+use Modules\Product\Http\Livewire\ProductEdit;
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::resource('product', ProductController::class)->names('product');
@@ -11,3 +12,4 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
 Route::get('/products/create', ProductCreate::class)->name('products.create');
 Route::get('/products', ProductList::class)->name('products.index');
+Route::get('/products/{id}/edit', ProductEdit::class)->name('products.edit');

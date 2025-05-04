@@ -17,6 +17,9 @@
                     <td class="py-2 px-4 border">{{ $product->name }}</td>
                     <td class="py-2 px-4 border">{{ $product->order }}</td>
                     <td class="py-2 px-4 border">{{ $product->active ? 'Sim' : 'Não' }}</td>
+                    <td class="py-2 px-4 border">
+                        <a href="{{ route('products.edit', $product->id) }}" class="text-blue-600 hover:underline">Editar</a>
+                    </td>
                 </tr>
             @empty
                 <tr>
