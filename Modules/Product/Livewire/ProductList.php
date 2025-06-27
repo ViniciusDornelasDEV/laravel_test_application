@@ -1,15 +1,18 @@
 <?php 
 
-namespace Modules\Product\Http\Livewire;
+namespace Modules\Product\Livewire;
 
 use Livewire\Component;
 use Modules\Product\Models\Product;
+use Livewire\WithPagination;
 
 class ProductList extends Component
 {
+    use WithPagination;
+
     public function render()
     {
-        $products = Product::orderBy('order')->get();
+        $products = Product::orderBy('order')->paginate(10);
 
         return view('product::livewire.product-list', [
             'products' => $products,

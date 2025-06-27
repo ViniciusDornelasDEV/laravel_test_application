@@ -1,24 +1,20 @@
 <?php
 
-namespace Modules\Product\Providers;
+namespace Modules\Auth\Providers;
 
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 use Nwidart\Modules\Traits\PathNamespace;
 use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;
-use Livewire\Livewire;
-use Modules\Product\Livewire\ProductCreate;
-use Modules\Product\Livewire\ProductList;
-use Modules\Product\Livewire\ProductEdit;
 
-class ProductServiceProvider extends ServiceProvider
+class AuthServiceProvider extends ServiceProvider
 {
     use PathNamespace;
 
-    protected string $name = 'Product';
+    protected string $name = 'Auth';
 
-    protected string $nameLower = 'product';
+    protected string $nameLower = 'auth';
 
     /**
      * Boot the application events.
@@ -31,9 +27,6 @@ class ProductServiceProvider extends ServiceProvider
         $this->registerConfig();
         $this->registerViews();
         $this->loadMigrationsFrom(module_path($this->name, 'database/migrations'));
-        Livewire::component('product-create', ProductCreate::class);
-        Livewire::component('product-list', ProductList::class);
-        Livewire::component('product-edit', ProductEdit::class);
     }
 
     /**

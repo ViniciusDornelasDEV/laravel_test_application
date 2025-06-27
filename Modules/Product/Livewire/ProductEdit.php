@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Product\Http\Livewire;
+namespace Modules\Product\Livewire;
 
 use Livewire\Component;
 use Modules\Product\Models\Product;
@@ -11,7 +11,7 @@ class ProductEdit extends Component
 
     protected $rules = [
         'product.name' => 'required|string|max:200',
-        'product.order' => 'required|integer|min:0',
+        'product.order' => 'required|integer|min:1',
         'product.active' => 'boolean',
     ];
 
@@ -30,6 +30,6 @@ class ProductEdit extends Component
 
     public function render()
     {
-        return view('product::livewire.product-edit')->layout('layouts.app');
+        return view('product::livewire.product-edit')->layout('product::layouts.master');
     }
 }

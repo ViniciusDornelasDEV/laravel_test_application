@@ -2,9 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use Modules\Product\Http\Controllers\ProductController;
-use Modules\Product\Http\Livewire\ProductCreate;
-use Modules\Product\Http\Livewire\ProductList;
-use Modules\Product\Http\Livewire\ProductEdit;
+use Modules\Product\Livewire\ProductCreate;
+use Modules\Product\Livewire\ProductList;
+use Modules\Product\Livewire\ProductEdit;
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::resource('product', ProductController::class)->names('product');

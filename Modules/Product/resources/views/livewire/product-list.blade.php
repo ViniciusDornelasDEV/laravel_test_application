@@ -1,11 +1,15 @@
 <div class="max-w-6xl mx-auto p-6">
-    <h1 class="text-2xl font-bold text-gray-800 mb-6">
-        Lista de Produtos
-        <a href="{{ route('products.create') }}" 
-           class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
-           Novo Produto
+    <div class="flex items-center justify-between mb-6">
+        <h1 class="text-2xl font-bold text-gray-800">
+            Lista de Produtos
+        </h1>
+
+        <a href="{{ route('products.create') }}"
+        class="inline-flex items-center px-4 py-2 border border-blue-600 text-blue-600 rounded hover:bg-blue-600 hover:text-white transition-colors">
+            <i data-lucide="circle-plus" class="w-4 h-4 mr-2"></i>
+            Novo Produto
         </a>
-    </h1>
+    </div>
 
     @if (session()->has('success'))
         <div class="bg-green-100 text-green-800 p-3 rounded mb-4">
@@ -59,5 +63,8 @@
                 @endforelse
             </tbody>
         </table>
+    </div>
+    <div class="mt-4">
+        {{ $products->links('vendor.pagination.tailwind') }}
     </div>
 </div>

@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Product\Http\Livewire;
+namespace Modules\Product\Livewire;
 
 use Livewire\Component;
 use Modules\Product\Models\Product;
@@ -8,13 +8,13 @@ use Modules\Product\Models\Product;
 class ProductCreate extends Component
 {
     public string $name = '';
-    public int $order = 0;
+    public int $order = 1;
     public bool $active = true;
 
     public function render()
     {
         return view('product::livewire.product-create')
-            ->layout('layouts.app');
+            ->layout('product::layouts.master');
     }
 
     public function save()
@@ -32,6 +32,6 @@ class ProductCreate extends Component
         ]);
 
         session()->flash('message', 'Produto cadastrado com sucesso!');
-        $this->reset();
+        return redirect()->route('products.index');
     }
 }
