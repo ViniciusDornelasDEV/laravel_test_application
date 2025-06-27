@@ -1,31 +1,63 @@
-<div class="max-w-3xl mx-auto p-4">
-    <h1 class="text-2xl font-bold mb-4">Lista de Produtos</h1>
+<div class="max-w-6xl mx-auto p-6">
+    <h1 class="text-2xl font-bold text-gray-800 mb-6">
+        Lista de Produtos
+        <a href="{{ route('products.create') }}" 
+           class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+           Novo Produto
+        </a>
+    </h1>
 
-    <table class="min-w-full border border-gray-300">
-        <thead>
-            <tr class="bg-gray-100">
-                <th class="py-2 px-4 border">ID</th>
-                <th class="py-2 px-4 border">Nome</th>
-                <th class="py-2 px-4 border">Ordem</th>
-                <th class="py-2 px-4 border">Ativo</th>
-            </tr>
-        </thead>
-        <tbody>
-            @forelse($products as $product)
+    @if (session()->has('success'))
+        <div class="bg-green-100 text-green-800 p-3 rounded mb-4">
+            {{ session('success') }}
+        </div>
+    @endif
+
+    <div class="overflow-x-auto bg-white shadow-md rounded">
+        <table class="min-w-full text-sm divide-y divide-gray-200">
+            <thead class="bg-gray-50 text-gray-700">
                 <tr>
-                    <td class="py-2 px-4 border">{{ $product->id }}</td>
-                    <td class="py-2 px-4 border">{{ $product->name }}</td>
-                    <td class="py-2 px-4 border">{{ $product->order }}</td>
-                    <td class="py-2 px-4 border">{{ $product->active ? 'Sim' : 'Não' }}</td>
-                    <td class="py-2 px-4 border">
-                        <a href="{{ route('products.edit', $product->id) }}" class="text-blue-600 hover:underline">Editar</a>
-                    </td>
+                    <th class="px-4 py-3 text-left font-medium">ID</th>
+                    <th class="px-4 py-3 text-left font-medium">Nome</th>
+                    <th class="px-4 py-3 text-left font-medium">Ordem</th>
+                    <th class="px-4 py-3 text-left font-medium">Ativo</th>
+                    <th class="px-4 py-3 text-left font-medium">Ações</th>
                 </tr>
-            @empty
-                <tr>
-                    <td colspan="4" class="text-center py-2">Nenhum produto cadastrado.</td>
-                </tr>
-            @endforelse
-        </tbody>
-    </table>
+            </thead>
+            <tbody class="divide-y divide-gray-100 text-gray-800">
+                @forelse($products as $product)
+                    <tr class="hover:bg-gray-50">
+                        <td class="px-4 py-2">{{ $product->id }}</td>
+                        <td class="px-4 py-2">{{ $product->name }}</td>
+                        <td class="px-4 py-2">{{ $product->order }}</td>
+                        <td class="px-4 py-2">
+                            @if ($product->active)
+                                <span class="inline-block px-2 py-1 text-xs bg-green-100 text-green-800 rounded">Sim</span>
+                            @else
+                                <span class="inline-block px-2 py-1 text-xs bg-red-100 text-red-800 rounded">Não</span>
+                            @endif
+                        </td>
+                        <td class="px-4 py-2 space-x-2 flex items-center">
+                            <a href="{{ route('products.edit', $product->id) }}" class="text-blue-600 hover:text-blue-800">
+                                <i data-lucide="square-pen" class="w-5 h-5"></i>
+                            </a>
+                            <button
+                                onclick="if (confirm('Tem certeza que deseja excluir este produto?')) { 
+                                    @this.call('deleteProduct', {{ $product->id }}) 
+                                }"
+                                class="text-red-600 hover:text-red-800">
+                                <i data-lucide="trash" class="w-5 h-5"></i>
+                            </button>
+                        </td>
+                    </tr>
+                @empty
+                    <tr>
+                        <td colspan="5" class="text-center text-gray-500 py-4">
+                            Nenhum produto cadastrado.
+                        </td>
+                    </tr>
+                @endforelse
+            </tbody>
+        </table>
+    </div>
 </div>

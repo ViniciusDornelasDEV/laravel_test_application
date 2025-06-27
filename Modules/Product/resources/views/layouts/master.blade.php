@@ -18,12 +18,14 @@
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
         {{-- Vite CSS --}}
-        {{-- {{ module_vite('build-product', 'resources/assets/sass/app.scss') }} --}}
+        @vite('resources/css/app.css')
+        @livewireStyles
     </head>
 
     <body>
         {{ $slot }}
 
         {{-- Vite JS --}}
-        {{-- {{ module_vite('build-product', 'resources/assets/js/app.js') }} --}}
+        @vite('resources/js/app.js')
+        @livewireScripts
     </body>

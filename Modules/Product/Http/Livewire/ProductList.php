@@ -11,6 +11,14 @@ class ProductList extends Component
     {
         $products = Product::orderBy('order')->get();
 
-        return view('product::livewire.product-list', compact('products'))->layout('layouts.app');
+        return view('product::livewire.product-list', [
+            'products' => $products,
+        ])->layout('product::layouts.master');
+    }
+
+    public function deleteProduct($id)
+    {
+        Product::findOrFail($id)->delete();
+        session()->flash('success', 'Produto excluído com sucesso!');
     }
 }
