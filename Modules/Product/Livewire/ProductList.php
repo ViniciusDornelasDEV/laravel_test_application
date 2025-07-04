@@ -23,5 +23,6 @@ class ProductList extends Component
     {
         Product::findOrFail($id)->delete();
         session()->flash('success', 'Produto excluído com sucesso!');
+        return redirect()->route('products.index');
     }
 }

@@ -10,6 +10,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::resource('product', ProductController::class)->names('product');
 });
 
-Route::get('/products/create', ProductCreate::class)->name('products.create');
-Route::get('/products', ProductList::class)->name('products.index');
-Route::get('/products/{id}/edit', ProductEdit::class)->name('products.edit');
+Route::middleware('auth')->group(function () {
+    Route::get('/products/create', ProductCreate::class)->name('products.create');
+    Route::get('/products', ProductList::class)->name('products.index');
+    Route::get('/products/{id}/edit', ProductEdit::class)->name('products.edit');
+});

@@ -46,9 +46,8 @@
                                 <i data-lucide="square-pen" class="w-5 h-5"></i>
                             </a>
                             <button
-                                onclick="if (confirm('Tem certeza que deseja excluir este produto?')) { 
-                                    @this.call('deleteProduct', {{ $product->id }}) 
-                                }"
+                                wire:click="deleteProduct({{ $product->id }})"
+                                wire:confirm="Tem certeza que deseja deletar?"
                                 class="text-red-600 hover:text-red-800">
                                 <i data-lucide="trash" class="w-5 h-5"></i>
                             </button>
