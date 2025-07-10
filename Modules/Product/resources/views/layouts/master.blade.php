@@ -46,10 +46,8 @@
                         </button>
                         <div x-show="open" @click.away="open = false" x-transition
                              class="absolute left-0 mt-2 w-56 bg-gray-800 text-white border border-gray-700 rounded-md shadow-lg z-50">
-                            <a href="{{ route('products.index') }}"
-                               class="block px-4 py-2 hover:bg-gray-700">Produto</a>
-                            <a href="#"
-                               class="block px-4 py-2 hover:bg-gray-700">Categoria de Produto</a>
+                            <a href="{{ route('categories.index') }}" class="block px-4 py-2 hover:bg-gray-700">Categoria de Produto</a>
+                            <a href="{{ route('products.index') }}" class="block px-4 py-2 hover:bg-gray-700">Produto</a>
                         </div>
                     </div>
 
@@ -65,9 +63,7 @@
                         <div x-show="open" @click.away="open = false" x-transition
                              class="absolute left-0 mt-2 w-56 bg-gray-800 text-white border border-gray-700 rounded-md shadow-lg z-50">
                             <a href="{{ route('products.index') }}"
-                               class="block px-4 py-2 hover:bg-gray-700">Produto</a>
-                            <a href="#"
-                               class="block px-4 py-2 hover:bg-gray-700">Categoria de Produto</a>
+                               class="block px-4 py-2 hover:bg-gray-700">Teste</a>
                         </div>
                     </div>
 
@@ -83,9 +79,9 @@
                         <div x-show="open" @click.away="open = false" x-transition
                              class="absolute left-0 mt-2 w-56 bg-gray-800 text-white border border-gray-700 rounded-md shadow-lg z-50">
                             <a href="{{ route('products.index') }}"
-                               class="block px-4 py-2 hover:bg-gray-700">Produto</a>
+                               class="block px-4 py-2 hover:bg-gray-700">Teste</a>
                             <a href="#"
-                               class="block px-4 py-2 hover:bg-gray-700">Categoria de Produto</a>
+                               class="block px-4 py-2 hover:bg-gray-700">Teste</a>
                         </div>
                     </div>
 

@@ -22,6 +22,20 @@
 
     <form wire:submit.prevent="save" class="space-y-5">
         <div>
+            <label for="category_id" class="block text-sm font-medium text-gray-700 mb-1">Categoria</label>
+            <select id="category_id" wire:model.defer="category_id"
+                    class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <option value="">Selecione uma categoria</option>
+                @foreach($categories as $category)
+                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                @endforeach
+            </select>
+            @error('category_id')
+                <span class="text-red-600 text-sm">{{ $message }}</span>
+            @enderror
+        </div>
+    
+        <div>
             <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Nome</label>
             <input type="text" id="name" wire:model="product.name"
                    class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
