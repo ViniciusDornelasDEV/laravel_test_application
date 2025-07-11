@@ -5,6 +5,11 @@ import Alpine from 'alpinejs';
 window.Alpine = Alpine;
 Alpine.start();
 
-document.addEventListener('DOMContentLoaded', () => {
-    createIcons({ icons });
-});
+Livewire.hook('component.init', ({ el, component }) => {
+    createIcons({ icons })
+})
+
+
+Livewire.hook('morph.updated', ({ el, component }) => {
+    createIcons({ icons })
+})

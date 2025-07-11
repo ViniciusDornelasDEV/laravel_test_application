@@ -4,25 +4,45 @@ namespace Modules\Product\Livewire;
 
 use Livewire\Component;
 use Modules\Product\Models\Product;
+use Modules\Product\Models\Category;
 use Livewire\WithPagination;
 
 class ProductList extends Component
 {
     use WithPagination;
+    public $categories = [];
+    public $selectedCategoryId = null;
+    
+    public function mount()
+    {
+        $this->categories = Category::where('active', 1)->orderBy('order')->get();
+        $this->selectedCategoryId = $this->categories->first()->id ?? null;
+    }
+
+    public function updatedSelectedCategoryId($value)
+    {
+        $this->resetPage();
+    }
 
     public function render()
     {
-        $products = Product::orderBy('order')->paginate(10);
-
+        $query = Product::orderBy('order');
+        if ($this->selectedCategoryId) {
+            $query->where('category_id', $this->selectedCategoryId);
+        }
+        $products = $query->paginate(10);
         return view('product::livewire.product-list', [
             'products' => $products,
+            'categories' => $this->categories,
+            'selectedCategoryId' => $this->selectedCategoryId,
         ])->layout('product::layouts.master');
     }
+
 
     public function deleteProduct($id)
     {
         Product::findOrFail($id)->delete();
         session()->flash('success', 'Produto excluído com sucesso!');
-        return redirect()->route('products.index');
+        $this->render();
     }
 }

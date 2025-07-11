@@ -17,8 +17,8 @@ return new class extends Migration
             $table->smallInteger('order')->default(1);
             $table->boolean('active')->default(true);
             $table->foreignId('category_id')
-              ->nullable()
-              ->constrained('products_categories');
+                ->constrained('products_categories')
+                ->onDelete('restrict');
             $table->timestamps();
         });
     }

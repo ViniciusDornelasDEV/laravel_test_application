@@ -41,6 +41,7 @@
                             </a>
                             <button
                                 wire:click="deleteCategory({{ $category->id }})"
+                                wire:confirm="Tem certeza que deseja deletar?"
                                 class="text-red-600 hover:text-red-800">
                                 <i data-lucide="trash" class="w-5 h-5"></i>
                             </button>
