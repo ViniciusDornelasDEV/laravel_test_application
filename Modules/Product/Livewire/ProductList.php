@@ -16,7 +16,7 @@ class ProductList extends Component
     public function mount()
     {
         $this->categories = Category::where('active', 1)->orderBy('order')->get();
-        $this->selectedCategoryId = $this->categories->first()->id ?? null;
+        $this->selectedCategoryId = request('category_id') ?? $this->categories->first()->id ?? null;
     }
 
     public function updatedSelectedCategoryId($value)

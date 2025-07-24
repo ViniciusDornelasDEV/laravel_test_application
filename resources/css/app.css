@@ -9,3 +9,19 @@
     --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol', 'Noto Color Emoji';
 }
+
+trix-toolbar [data-trix-action="attachFiles"],
+trix-toolbar [data-trix-action="undo"],
+trix-toolbar [data-trix-action="increaseNestingLevel"],
+trix-toolbar [data-trix-action="decreaseNestingLevel"],
+trix-toolbar [data-trix-attribute="code"],
+trix-toolbar [data-trix-attribute="quote"],
+trix-toolbar [data-trix-attribute="heading1"],
+trix-toolbar [data-trix-attribute="number"],
+trix-toolbar [data-trix-attribute="bullet"],
+trix-toolbar [data-trix-action="redo"] {
+    display: none !important;
+}
+trix-toolbar .trix-button-group {
+    border: none !important;
+}

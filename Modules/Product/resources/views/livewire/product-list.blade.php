@@ -4,7 +4,7 @@
             Lista de Produtos
         </h1>
 
-        <a href="{{ route('products.create') }}"
+        <a href="{{ route('products.create', ['category_id' => $selectedCategoryId]) }}"
         class="inline-flex items-center px-4 py-2 border border-blue-600 text-blue-600 rounded hover:bg-blue-600 hover:text-white transition-colors">
             <i data-lucide="circle-plus" class="w-4 h-4 mr-2"></i>
             Novo Produto

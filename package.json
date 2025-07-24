@@ -15,6 +15,7 @@
     },
     "dependencies": {
         "alpinejs": "^3.14.9",
-        "lucide": "^0.524.0"
+        "lucide": "^0.524.0",
+        "trix": "^2.1.15"
     }
 }
