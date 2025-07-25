@@ -77,14 +77,13 @@
                     @enderror
                 </div>
                 <div class="w-1/2">
-                    <label for="active" class="block text-sm font-medium text-gray-700 mb-1">Status</label>
-                    <select id="active" wire:model.defer="product.active"
+                    <label for="status" class="block text-sm font-medium text-gray-700 mb-1">Status</label>
+                    <select id="status" wire:model.defer="product.status"
                         class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
-                        <option value="1">Ativo</option>
-                        <option value="F">Em falta</option>
-                        <option value="0">Inativo</option>
+                        <option value="ativo">Ativo</option>
+                        <option value="inativo">Inativo</option>
                     </select>
-                    @error('product.active')
+                    @error('product.status')
                         <span class="text-red-600 text-sm">{{ $message }}</span>
                     @enderror
                 </div>

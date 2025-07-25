@@ -7,25 +7,24 @@ use Modules\Product\Models\Category;
 
 class CategoryCreate extends Component
 {
-    public $name = '';
-    public $order = 1;
-    public $active = true;
+    public Category $category;
 
     protected $rules = [
-        'name' => 'required|string|max:200',
-        'order' => 'required|integer|min:1',
-        'active' => 'boolean',
+        'category.name'     => 'required|string|max:200',
+        'category.order'    => 'required|integer|min:1',
+        'category.status'   => 'required|string|in:ativo,inativo',
     ];
+
+    public function mount()
+    {
+        $this->category = new Category();
+    }
 
     public function save()
     {
         $this->validate();
 
-        Category::create([
-            'name' => $this->name,
-            'order' => $this->order,
-            'active' => $this->active,
-        ]);
+        $this->category->save();
 
         session()->flash('success', 'Categoria cadastrada com sucesso!');
         return redirect()->route('categories.index');

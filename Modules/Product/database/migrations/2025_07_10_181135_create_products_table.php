@@ -18,7 +18,7 @@ return new class extends Migration
             $table->json('sales_locations')->nullable();
             $table->text('description')->nullable();
             $table->string('photo')->nullable();
-            $table->boolean('active')->default(true);
+            $table->string('status')->default('ativo');
             $table->timestamps();
 
             $table->unique(['category_id', 'code']);

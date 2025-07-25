@@ -12,7 +12,7 @@ class CategoryEdit extends Component
     protected $rules = [
         'category.name' => 'required|string|max:200',
         'category.order' => 'required|integer|min:1',
-        'category.active' => 'boolean',
+        'category.status'   => 'required|string|in:ativo,inativo',
     ];
 
     public function mount($id)

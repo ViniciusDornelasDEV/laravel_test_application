@@ -25,7 +25,7 @@ class ProductSeeder extends Seeder
                     [
                         'name' => 'X-Burguer',
                         'order' => 1,
-                        'active' => true,
+                        'status' => 'ativo',
                         'code' => 100,
                         'price' => 15.00,
                         'sales_locations' => ['Caixa', 'Site', 'App', 'Ifood'],
@@ -35,7 +35,7 @@ class ProductSeeder extends Seeder
                     [
                         'name' => 'X-Salada',
                         'order' => 2,
-                        'active' => true,
+                        'status' => 'ativo',
                         'code' => 101,
                         'price' => 18.00,
                         'sales_locations' => ['Caixa', 'Site', 'App'],
@@ -45,7 +45,7 @@ class ProductSeeder extends Seeder
                     [
                         'name' => 'X-Bacon',
                         'order' => 3,
-                        'active' => true,
+                        'status' => 'ativo',
                         'code' => 102,
                         'price' => 20.00,
                         'sales_locations' => ['Caixa', 'Site'],
@@ -61,7 +61,7 @@ class ProductSeeder extends Seeder
                     [
                         'name' => 'Batata Frita',
                         'order' => 1,
-                        'active' => true,
+                        'status' => 'ativo',
                         'code' => 200,
                         'price' => 12.00,
                         'sales_locations' => ['Caixa', 'Site', 'App', 'Ifood'],
@@ -77,7 +77,7 @@ class ProductSeeder extends Seeder
                     [
                         'name' => 'Refrigerante Lata',
                         'order' => 1,
-                        'active' => true,
+                        'status' => 'ativo',
                         'code' => 300,
                         'price' => 6.00,
                         'sales_locations' => ['Caixa', 'App'],
@@ -87,7 +87,7 @@ class ProductSeeder extends Seeder
                     [
                         'name' => 'Água Mineral',
                         'order' => 2,
-                        'active' => true,
+                        'status' => 'ativo',
                         'code' => 301,
                         'price' => 4.00,
                         'sales_locations' => ['Caixa', 'App'],
@@ -103,7 +103,7 @@ class ProductSeeder extends Seeder
                     [
                         'name' => 'Sorvete',
                         'order' => 1,
-                        'active' => true,
+                        'status' => 'ativo',
                         'code' => 400,
                         'price' => 10.00,
                         'sales_locations' => ['Caixa'],

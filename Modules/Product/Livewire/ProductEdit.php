@@ -23,7 +23,7 @@ class ProductEdit extends Component
         'sales_locations.*'         => 'in:Caixa,Site,App,Ifood',
         'product.description'       => 'nullable|string',
         'photo'                     => 'nullable|image|max:2048',
-        'product.active'            => 'boolean',
+        'product.status'            => 'required|string|in:ativo,inativo',
     ];
 
 

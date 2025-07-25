@@ -17,7 +17,7 @@
     <form wire:submit.prevent="save" class="space-y-5">
         <div>
             <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Nome</label>
-            <input type="text" id="name" wire:model.defer="name"
+            <input type="text" id="name" wire:model.defer="category.name"
                    class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
             @error('name')
                 <span class="text-red-600 text-sm">{{ $message }}</span>
@@ -26,17 +26,23 @@
 
         <div>
             <label for="order" class="block text-sm font-medium text-gray-700 mb-1">Ordem</label>
-            <input type="number" id="order" wire:model.defer="order"
+            <input type="number" id="order" wire:model.defer="category.order"
                    class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
             @error('order')
                 <span class="text-red-600 text-sm">{{ $message }}</span>
             @enderror
         </div>
 
-        <div class="flex items-center space-x-2">
-            <input type="checkbox" id="active" wire:model.defer="active"
-                   class="rounded border-gray-300 text-blue-600 focus:ring-blue-500">
-            <label for="active" class="text-sm text-gray-700">Ativo</label>
+        <div>
+            <label for="status" class="block text-sm font-medium text-gray-700 mb-1">Status</label>
+            <select id="status" wire:model.defer="category.status"
+                class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <option value="ativo">Ativo</option>
+                <option value="inativo">Inativo</option>
+            </select>
+            @error('category.status')
+                <span class="text-red-600 text-sm">{{ $message }}</span>
+            @enderror
         </div>
 
         <div class="pt-4">

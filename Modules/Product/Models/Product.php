@@ -12,7 +12,7 @@ class Product extends Model
     protected $fillable = [
         'name',
         'order',
-        'active',
+        'status',
         'category_id',
         'code',
         'price',
@@ -22,7 +22,7 @@ class Product extends Model
     ];
 
     protected $casts = [
-        'active' => 'boolean',
+        'status' => 'string',
         'price' => 'float',
         'sales_locations' => 'array',
     ];
@@ -30,7 +30,7 @@ class Product extends Model
     protected $attributes = [
         'name' => '',
         'order' => 1,
-        'active' => true,
+        'status' => 'ativo',
         'category_id' => null,
         'code' => null,
         'price' => 0.00,
