@@ -19,11 +19,6 @@ class ProductList extends Component
         $this->selectedCategoryId = request('category_id') ?? $this->categories->first()->id ?? null;
     }
 
-    public function updatedSelectedCategoryId($value)
-    {
-        $this->resetPage();
-    }
-
     public function render()
     {
         $query = Product::orderBy('order');

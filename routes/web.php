@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
-Route::middleware('auth')->group(function () {
+Route::middleware('auth', 'role:admin,attendant')->group(function () {
     Route::get('/', function () {
         return view('welcome');
     });

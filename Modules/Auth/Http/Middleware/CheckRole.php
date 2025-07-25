@@ -7,11 +7,11 @@ use Illuminate\Http\Request;
 
 class CheckRole
 {
-    public function handle(Request $request, Closure $next)
+    public function handle(Request $request, Closure $next, ...$roles)
     {
-        /*if (!auth()->check() || !in_array(auth()->user()->role, $roles)) {
-            //abort(403, 'Acesso não autorizado');
-        }*/
+        if (!auth()->check() || !in_array(auth()->user()->role, $roles)) {
+            abort(403, 'Acesso não autorizado!');
+        }
         return $next($request);
     }
 }
