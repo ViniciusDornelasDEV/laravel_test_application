@@ -29,7 +29,7 @@ class ProductEdit extends Component
 
     public function mount(int $id)
     {
-        $this->categories = Category::where('active', 1)->orderBy('order')->get();
+        $this->categories = Category::where('status', 1)->orderBy('order')->get();
         $this->product = Product::findOrFail($id);
         $this->sales_locations = $this->product->sales_locations ?? [];
     }

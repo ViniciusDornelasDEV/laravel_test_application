@@ -32,7 +32,7 @@ class ProductCreate extends Component
     public function mount()
     {
         $this->sales_locations = $this->product->sales_locations ?? [];
-        $this->categories = Category::where('active', 1)->orderBy('order')->get();
+        $this->categories = Category::where('status', 1)->orderBy('order')->get();
         $this->product = new Product();
         $this->product->category_id = request('category_id');
         $this->product->order = Product::where('category_id', $this->product->category_id)->max('order') + 1;
