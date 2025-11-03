@@ -5,9 +5,11 @@ namespace Modules\Product\Livewire;
 use Livewire\Component;
 use Modules\Product\Models\Product;
 use Modules\Product\Models\Category;
+use Livewire\WithFileUploads;
 
 class ProductEdit extends Component
 {
+    use WithFileUploads;
     public Product $product;
     public $categories = [];
     public $sales_locations = [];
@@ -29,7 +31,7 @@ class ProductEdit extends Component
 
     public function mount(int $id)
     {
-        $this->categories = Category::where('status', 1)->orderBy('order')->get();
+        $this->categories = Category::where('status', 'ativo')->orderBy('order')->get();
         $this->product = Product::findOrFail($id);
         $this->sales_locations = $this->product->sales_locations ?? [];
     }

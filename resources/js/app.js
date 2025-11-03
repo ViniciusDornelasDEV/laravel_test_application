@@ -15,3 +15,7 @@ Livewire.hook('component.init', ({ el, component }) => {
 Livewire.hook('morph.updated', ({ el, component }) => {
     createIcons({ icons })
 })
+
+Livewire.hook('morph.added', () => {
+    createIcons({ icons })
+})

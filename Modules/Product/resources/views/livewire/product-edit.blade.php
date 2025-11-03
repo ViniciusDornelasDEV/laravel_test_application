@@ -112,16 +112,19 @@
             </div>
 
             <!-- Descrição (com Trix) -->
-            <div>
+            <div wire:ignore>
                 <label for="description" class="block text-sm font-medium text-gray-700 mb-1">Descrição</label>
-                <input id="x" type="hidden" name="product[description]" wire:model.defer="product.description">
-                <trix-editor input="x"></trix-editor>
+                <input id="description" type="hidden" wire:model.lazy="product.description">
+                <trix-editor
+                    input="description"
+                    x-on:trix-change="document.getElementById('description').dispatchEvent(new Event('input', { bubbles: true }))"
+                ></trix-editor>
                 @error('product.description')
                     <span class="text-red-600 text-sm">{{ $message }}</span>
                 @enderror
             </div>
         </div>
-        <!-- Coluna 2 (Imagem) -->
+        
         <div class="flex flex-col items-center gap-4">
             <div class="w-full">
                 <label for="photo" class="block text-sm font-medium text-gray-700 mb-2">Foto do produto</label>
